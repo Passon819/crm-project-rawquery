@@ -13,8 +13,19 @@ const databases = {
     //     return db;
     // },
 
-    mariaDB() {
+    mariaDBCreatePool() {
         const connection = mariadb.createPool({
+            host: config.dbHost,
+            port: config.dbPort,
+            user: config.dbUser,
+            password: config.dbPass,
+            database: config.dbName
+        });
+        return connection;
+    },
+
+    async mariaDBCreateConnection() {        
+        let connection = await mariadb.createConnection({
             host: config.dbHost,
             port: config.dbPort,
             user: config.dbUser,
@@ -36,4 +47,4 @@ const databases = {
     }
 }
 
-module.exports = databases.mariaDB()
+module.exports = databases;
