@@ -17,6 +17,8 @@ const methods = {
     },
 
     async insertMany(req) {
+        // เปลี่ยนไปใช้ฟังกชัน importContact แทน
+        
         const data = req.body;
         //console.log(data);
 
